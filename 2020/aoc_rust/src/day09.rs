@@ -70,7 +70,7 @@ fn find_contiguous_summands(
             *acc += x;
             Some(*acc)
         }).collect();
-    for start in 0..numbers.len() {
+    for start in 0..(numbers.len()-1) {
         let sum_to_start: u64 = cumsum[start];
         for end in (start+1)..=numbers.len() {
             if cumsum[end-1] - sum_to_start == desired_sum {
