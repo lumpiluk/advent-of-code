@@ -23,7 +23,7 @@ pub fn run_day09(puzzle_input: &str) {
                 min + max
             );
         } else {
-            println!("Did not find a contiguos sequence.");
+            println!("Did not find a contiguous sequence.");
         }
     } else {
         println!("Did not find any non-sum number.");
