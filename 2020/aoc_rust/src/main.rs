@@ -1,3 +1,6 @@
+// Enable 'unstable library feature':
+#![feature(is_sorted)]
+
 extern crate clap;
 use clap::{Arg, App};
 
@@ -10,6 +13,7 @@ mod day06;
 mod day07;
 mod day08;
 mod day09;
+mod day10;
 
 fn main() {
     let matches = App::new("Advent of Code solutions")
@@ -44,6 +48,7 @@ fn main() {
         7 => day07::run_day07(&puzzle_input_filename),
         8 => day08::run_day08(&puzzle_input_filename),
         9 => day09::run_day09(&puzzle_input_filename),
+        10 => day10::run_day10(&puzzle_input_filename),
         _ => println!("Invalid day: {}", day)
     }
 }
