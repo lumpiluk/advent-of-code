@@ -14,10 +14,11 @@ mod day07;
 mod day08;
 mod day09;
 mod day10;
+mod day11;
 
 fn main() {
     let matches = App::new("Advent of Code solutions")
-        .version("9")
+        .version("11")
         .author("Lukas Stratmann")
         .arg(Arg::with_name("day")
              .short("d")
@@ -49,6 +50,7 @@ fn main() {
         8 => day08::run_day08(&puzzle_input_filename),
         9 => day09::run_day09(&puzzle_input_filename),
         10 => day10::run_day10(&puzzle_input_filename),
+        11 => day11::run_day11(&puzzle_input_filename),
         _ => println!("Invalid day: {}", day)
     }
 }
