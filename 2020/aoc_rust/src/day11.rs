@@ -32,6 +32,7 @@ enum SeatPosition {
 }
 
 impl SeatPosition {
+    #[allow(dead_code)] // used in tests
     fn to_string(&self) -> String {
         String::from(match *self {
             SeatPosition::Floor => ".",
