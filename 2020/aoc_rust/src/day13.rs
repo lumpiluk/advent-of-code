@@ -43,25 +43,24 @@ pub fn run_day13(puzzle_input: &str) {
     loop {
         let mut seq_correct = true;
         for (i, bus_id) in bus_ids[1..].iter().enumerate() {
-            if let Some(bus_id) = bus_id {
-                if (contest_timestamp + i as u64 + 1) % bus_id == 0 {
-                    if i + 1 > max_bus_tab_id {
-                        max_bus_tab_id = i + 1;
-                        // Update the periodicity to the least
-                        // common multiple:
-                        reference_bus = bus_ids[..=i+1].iter()
-                            .fold(1, |lcm, &bus_id| {
-                                if let Some(bus_id) = bus_id {
-                                    num::integer::lcm(lcm, bus_id)
-                                } else {
-                                    lcm
-                                }
-                            });
-                    }
-                } else {
-                    seq_correct = false;
-                    break;
-                }
+            if let None = bus_id { continue; }
+            let bus_id = bus_id.unwrap();
+            if (contest_timestamp + i as u64 + 1) % bus_id != 0 {
+                seq_correct = false;
+                break;
+            }
+            if i + 1 > max_bus_tab_id {
+                max_bus_tab_id = i + 1;
+                // Update the periodicity to the least
+                // common multiple:
+                reference_bus = bus_ids[..=i+1].iter()
+                    .fold(1, |lcm, &bus_id| {
+                        if let Some(bus_id) = bus_id {
+                            num::integer::lcm(lcm, bus_id)
+                        } else {
+                            lcm
+                        }
+                    });
             }
         }
         // println!("{}", &contest_timestamp);
