@@ -86,22 +86,14 @@ fn follow_waypoint_instructions(
             "S" => { waypoint = (waypoint.0, waypoint.1 - val); },
             "E" => { waypoint = (waypoint.0 + val, waypoint.1); },
             "W" => { waypoint = (waypoint.0 - val, waypoint.1); },
-            "L" => {
-                waypoint = rotate_90_cw(waypoint, -val);
-            },
-            "R" => {
-                waypoint = rotate_90_cw(waypoint, val);
-            },
+            "L" => { waypoint = rotate_90_cw(waypoint, -val); },
+            "R" => { waypoint = rotate_90_cw(waypoint, val); },
             "F" => {
                 ship_pos = (
                     ship_pos.0 + val * waypoint.0,
                     ship_pos.1 + val * waypoint.1
                 );
-                // waypoint = (
-                //      waypoint.0 + val * waypoint.0,
-                //      waypoint.1 + val * waypoint.1
-                // );
-            },
+        },
             e => { panic!("Unrecognized action{}", e); }
         }
         println!("pos and waypoint after {}{}: {:?}", action, val, (&ship_pos, &waypoint));
