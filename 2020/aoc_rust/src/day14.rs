@@ -20,11 +20,11 @@ pub fn run_day14(puzzle_input: &str) {
         .collect();
 
     let mem = MaskV1::compute(&code[..], &MASK, &MEM);
-    let mem_sum: u64 = mem.iter().fold(0, |acc, (_, v)| acc + v);
+    let mem_sum: u64 = mem.values().sum();
     println!("Version 1: Sum of values in memory: {}", mem_sum);
 
     let mem = MaskV2::compute(&code[..], &MASK, &MEM);
-    let mem_sum: u64 = mem.iter().fold(0, |acc, (_, v)| acc + v);
+    let mem_sum: u64 = mem.values().sum();
     println!("Version 2: Sum of values in memory: {}", mem_sum);
 }
 
