@@ -18,6 +18,7 @@ mod day11;
 mod day12;
 mod day13;
 mod day14;
+mod day15;
 
 fn main() {
     let matches = App::new("Advent of Code solutions")
@@ -57,6 +58,7 @@ fn main() {
         12 => day12::run_day12(&puzzle_input_filename),
         13 => day13::run_day13(&puzzle_input_filename),
         14 => day14::run_day14(&puzzle_input_filename),
+        15 => day15::run_day15(&puzzle_input_filename),
         _ => println!("Invalid day: {}", day)
     }
 }
