@@ -8,10 +8,11 @@ use clap::{Arg, App};
 // extern crate lazy_static;
 
 mod day01;
+mod day02;
 
 fn main() {
     let matches = App::new("Advent of Code solutions 2021")
-        .version("1")
+        .version("2")
         .author("Lukas Stratmann")
         .arg(Arg::with_name("day")
              .short("d")
@@ -38,6 +39,7 @@ fn main() {
     let puzzle_input_filename = matches.value_of("puzzle_input").unwrap();
     match day {
         1 => day01::run_day01(&puzzle_input_filename),
+        2 => day02::run_day02(&puzzle_input_filename),
         _ => println!("Invalid day: {}", day)
     }
 }
