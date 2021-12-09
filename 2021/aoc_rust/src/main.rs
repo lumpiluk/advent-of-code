@@ -7,10 +7,11 @@ use clap::{Arg, App};
 mod day01;
 mod day02;
 mod day03;
+mod day04;
 
 fn main() {
     let matches = App::new("Advent of Code solutions 2021")
-        .version("3")
+        .version("4")
         .author("Lukas Stratmann")
         .arg(Arg::with_name("day")
              .short("d")
@@ -39,6 +40,7 @@ fn main() {
         1 => day01::run_day01(&puzzle_input_filename),
         2 => day02::run_day02(&puzzle_input_filename),
         3 => day03::run_day03(&puzzle_input_filename),
+        4 => day04::run_day04(&puzzle_input_filename),
         _ => println!("Invalid day: {}", day)
     }
 }
