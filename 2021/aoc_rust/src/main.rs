@@ -1,3 +1,6 @@
+#[macro_use]
+extern crate lazy_static;
+
 extern crate clap;
 use clap::{Arg, App};
 
@@ -8,10 +11,11 @@ mod day01;
 mod day02;
 mod day03;
 mod day04;
+mod day05;
 
 fn main() {
     let matches = App::new("Advent of Code solutions 2021")
-        .version("4")
+        .version("5")
         .author("Lukas Stratmann")
         .arg(Arg::with_name("day")
              .short("d")
@@ -41,6 +45,7 @@ fn main() {
         2 => day02::run_day02(&puzzle_input_filename),
         3 => day03::run_day03(&puzzle_input_filename),
         4 => day04::run_day04(&puzzle_input_filename),
+        5 => day05::run_day05(&puzzle_input_filename),
         _ => println!("Invalid day: {}", day)
     }
 }
